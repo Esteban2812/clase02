@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+      <p>
+          {{curso}}
+        </p>
+  </div>
+
+
+<form class="col-6">
+  <div class="form-group">
+      <input type="text" class="form-control" (input)="nombreCurso($event.target.value)">
+    <button type="button"
+            class="btn btn-success"
+            [disabled]='activo'
+            (click)="registrar()">Registrar</button>
+  </div>
+</form>
+
+<table class="col-6 table">
+  <tr>
+    <th>indice</th>
+    <th>curso</th>
+    <th></th>
+  </tr>
+
+  <tr *ngFor="let curso of cursos; let indice=index">
+    <td>
+      {{indice}}
+    </td>
+    <td>
+        {{curso}}
+      </td>
+      <td>
+          <button class="btn btn-danger" (click)="eliminar(indice)">Eliminar</button>
+        </td>
+  </tr>
+</table>
+
